@@ -1,13 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header/Header";
+import { goToPokedexPage } from "../../Router/Coordinator";
 import { PokedexPageButtonStyle } from "./pokemonliststyle";
 
-export function PokemonListPage(props) {
-  const PokedexPageButton = (
-    <PokedexPageButtonStyle onClick={()=>props.changePage(2)}>Pokédex</PokedexPageButtonStyle>
+function PokemonListPage() {
+  const navigate = useNavigate();
+  const pokedexPageButton = (
+    <PokedexPageButtonStyle onClick={() => goToPokedexPage(navigate)}>
+      Pokédex
+    </PokedexPageButtonStyle>
   );
   return (
     <>
-      <Header pokedexbutton={PokedexPageButton}/>
+      <Header pokedexbutton={pokedexPageButton} />
     </>
   );
 }

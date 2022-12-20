@@ -1,9 +1,5 @@
-import PokedexPage from "./Pages/PokedexPage/PokedexPage";
-import PokemonDetailPage from "./Pages/PokemonDetailPage/PokemonDetailPage";
-import PokemonListPage from "./Pages/PokemonListPage/PokemonListPage"
 import { createGlobalStyle } from "styled-components";
-import { useState } from "react";
-
+import Router from "./Router/Router";
 
 export const GlobalStyled = createGlobalStyle`
   *{
@@ -14,40 +10,11 @@ export const GlobalStyled = createGlobalStyle`
 `;
 
 function App() {
-
-  const [page, SetPage] = useState(1);
-
-  const changePage = (page) => SetPage(page);
-
-  if (page === 1) {
-    return (
-      <div>
-        <PokemonListPage changePage={changePage}/>
-        <GlobalStyled />
-      </div>
-    );
-  }
-
-  if (page === 2) {
-    return (
-      <div>
-        <PokedexPage />
-        <GlobalStyled />
-      </div>
-    )
-  }
-
-  if (page === 3) {
-    return (
-      <div>
-        <PokemonDetailPage />
-        <GlobalStyled />
-      </div>
-    )
-  }
-
-
-  
+  return (
+    <div>
+      <Router />
+    </div>
+  );
 }
 
 export default App;

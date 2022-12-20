@@ -1,15 +1,17 @@
-import { HeaderContainer } from "./headerstyle"
-import pokemonlogo from "../Assets/pokemonlogo.svg"
+import { HeaderContainer } from "./headerstyle";
+import pokemonlogo from "../Assets/pokemonlogo.svg";
 
 export function Header(props) {
-    return(
-        <>
-        <HeaderContainer>
+  return (
+    <>
+      <HeaderContainer>
+        {props.returnToMainPage}
         <img src={pokemonlogo} alt="PokemonLogo" />
         {props.pokedexbutton}
-        </HeaderContainer>
-        </>
-    )
+        {props.addPokemonOnPokedex}
+      </HeaderContainer>
+    </>
+  );
 }
 
-export default Header
+export default Header;
