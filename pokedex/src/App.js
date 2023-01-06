@@ -1,17 +1,18 @@
-import Header from "./Components/Header/Header";
-import { GlobalStyled } from "./GlobalStyled";
-import PokedexListPage from "./Pages/PokedexListPage/PokedexListPage";
-import PokedexPage from "./Pages/PokedexPage/PokedexPage";
-import PokemonDetailsPage from "./Pages/PokemonDetailsPage/PokemonDatailsPage";
+import { createGlobalStyle } from "styled-components";
+import Router from "./Router/Router";
+
+export const GlobalStyled = createGlobalStyle`
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
 
 function App() {
   return (
-    <div >
-      <GlobalStyled />
-      <Header/>
-      <PokedexListPage/>
-      <PokedexPage/>
-      <PokemonDetailsPage/>
+    <div>
+      <Router />
     </div>
   );
 }

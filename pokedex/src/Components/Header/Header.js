@@ -1,13 +1,17 @@
-import React from 'react';
-import { HeaderContainer } from './HeaderStyle';
-import Pokelogo from '../../images/pokemon.png'
+import { HeaderContainer } from "./headerstyle";
+import pokemonlogo from "../Assets/pokemonlogo.svg";
 
-export default function Header() {
- return (
-   <HeaderContainer>
-     <p></p>
-    <img src={Pokelogo} />
-    <button>Pokedex</button>
-   </HeaderContainer>
+export function Header(props) {
+  return (
+    <>
+      <HeaderContainer>
+        {props.returnToMainPage}
+        <img src={pokemonlogo} alt="PokemonLogo" />
+        {props.pokedexbutton}
+        {props.addPokemonOnPokedex}
+      </HeaderContainer>
+    </>
   );
 }
+
+export default Header;

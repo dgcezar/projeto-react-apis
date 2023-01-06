@@ -1,17 +1,20 @@
-import React from 'react';
-import PokeCard from '../../Components/PokeCard/PokeCard';
-import { PokedexContainer } from './PokedexStyles';
+import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Header/Header";
+import { goToPokemonList } from "../../Router/Coordinator";
 
-export default function PokedexPage() {
- return (
-   <>
-    <h1>Meus Pokemons</h1>
-    <PokedexContainer>
-      <PokeCard/>
-      <PokeCard/>
-      <PokeCard/>
-      <PokeCard/>
-    </PokedexContainer>
-   </>
+function PokedexPage() {
+  const navigate = useNavigate();
+
+  const returnToMainPage = (
+    <button onClick={() => goToPokemonList(navigate)}>
+      &lt; Todos Pokemons
+    </button>
+  );
+  return (
+    <>
+      <Header returnToMainPage={returnToMainPage} />
+    </>
   );
 }
+
+export default PokedexPage;
