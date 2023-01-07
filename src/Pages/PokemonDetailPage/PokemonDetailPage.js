@@ -1,6 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header/Header";
 import { goToPokemonList } from "../../Router/Coordinator";
+import {
+  PokemonDetailContainer,
+  PokemonDetailDescriptionContainer,
+  PokemonDetailImage,
+  PokemonDetailLeftContainer,
+  PokemonDetailMovesContainer,
+  PokemonDetailRightContainer,
+  PokemonDetailTitle,
+} from "./pokemondetailstyle";
 
 function PokemonDetailPage() {
   const navigate = useNavigate();
@@ -14,6 +23,22 @@ function PokemonDetailPage() {
         addPokemonOnPokedex={addPokemonOnPokedex}
         returnToMainPage={returnToMainPage}
       />
+      <PokemonDetailContainer>
+        <PokemonDetailTitle>
+          <h1>Detalhes</h1>
+        </PokemonDetailTitle>
+        <PokemonDetailDescriptionContainer>
+          <PokemonDetailLeftContainer>
+            <PokemonDetailImage></PokemonDetailImage>
+            <PokemonDetailImage></PokemonDetailImage>
+            <PokemonDetailDescriptionContainer></PokemonDetailDescriptionContainer>
+          </PokemonDetailLeftContainer>
+          <PokemonDetailRightContainer>
+            <PokemonDetailPokemonDescription></PokemonDetailPokemonDescription>
+            <PokemonDetailMovesContainer></PokemonDetailMovesContainer>
+          </PokemonDetailRightContainer>
+        </PokemonDetailDescriptionContainer>
+      </PokemonDetailContainer>
     </>
   );
 }
