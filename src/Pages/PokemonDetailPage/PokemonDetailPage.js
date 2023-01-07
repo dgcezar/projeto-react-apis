@@ -7,6 +7,7 @@ import {
   PokemonDetailImage,
   PokemonDetailLeftContainer,
   PokemonDetailMovesContainer,
+  PokemonDetailPokemonDescription,
   PokemonDetailRightContainer,
   PokemonDetailTitle,
 } from "./pokemondetailstyle";

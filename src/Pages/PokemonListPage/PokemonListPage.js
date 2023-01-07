@@ -24,26 +24,7 @@ function PokemonListPage() {
           <h1>Todos Pokémons</h1>
         </PokemonGridTitle>
         <PokemonGrid>
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
+          <PokemonCard />          
         </PokemonGrid>
       </PokemonListContainer>
     </>
