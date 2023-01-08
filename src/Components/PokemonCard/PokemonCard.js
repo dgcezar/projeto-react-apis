@@ -8,7 +8,10 @@ import {
   CardDetail,
   CardImage,
   CardButton,
+  CardWaterMarkPokeball,
 } from "./pokemoncardstyle";
+import pokeball from "../Assets/pokeball.png"
+import { PokemonTypes } from "../PokemonTypes/PokemonTypes";
 
 export function PokemonCard() {
   const [pokemon, setPokemon] = useState([]);
@@ -39,18 +42,21 @@ export function PokemonCard() {
           <CardContainer>
             <CardLeftContainer>
               <CardDescription>
-                <span>{poke.data.id}</span>
-                <span>{poke.data.name}</span>
-                <span>type1</span>
-                <span>type2</span>
+                <h4>{poke.data.id}</h4>
+                <h2>{poke.data.name}</h2>
+                <span>{poke.data.types[0].type.name}</span>
+                <span>{poke.data.types[1]?.type.name}</span>                
               </CardDescription>
               <CardDetail>
                 <a>Detalhes</a>
               </CardDetail>
             </CardLeftContainer>
             <CardRightContainer>
+              {/* <CardWaterMarkPokeball>
+                <img src={pokeball} />
+              </CardWaterMarkPokeball> */}
               <CardImage>
-                <img src="#" />
+                <img src={poke.data.sprites.front_default} />
               </CardImage>
               <CardButton>
                 <button>Capturar!</button>

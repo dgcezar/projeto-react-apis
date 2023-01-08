@@ -38,3 +38,12 @@ export const CardImage = styled.div`
 export const CardButton = styled.div`
     display: flex;
 `
+
+export const CardWaterMarkPokeball = styled.div`
+display: flex;
+img {
+object-fit: fill;
+
+}
+
+`
