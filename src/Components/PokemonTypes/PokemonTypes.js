@@ -15,6 +15,7 @@ import psychic from "../Assets/psychic.svg";
 import rock from "../Assets/rock.svg";
 import steel from "../Assets/steel.svg";
 import water from "../Assets/water.svg";
+import poison from "../Assets/poison.svg";
 
 export const PokemonTypes = (type) => {
   switch (type) {
@@ -28,8 +29,12 @@ export const PokemonTypes = (type) => {
       return <img src={electric} alt="electric type" />;
     case "fairy":
       return <img src={fairy} alt="fairy type" />;
+    case "flying":
+      return <img src={flying} alt="flying type" />;
     case "fire":
       return <img src={fire} alt="fire type" />;
+    case "fighting":
+      return <img src={fighting} alt="fighting type" />;
     case "ghost":
       return <img src={ghost} alt="ghost type" />;
     case "grass":
@@ -45,9 +50,12 @@ export const PokemonTypes = (type) => {
     case "rock":
       return <img src={rock} alt="rock type" />;
     case "steel":
-      return <img src={steel} alt="steel type" />;    
+      return <img src={steel} alt="steel type" />;
     case "water":
       return <img src={water} alt="water type" />;
-      break;     
+    case "poison":
+      return <img src={poison} alt="poison type" />;
+    default:
+      return <span>no</span>;
   }
 };

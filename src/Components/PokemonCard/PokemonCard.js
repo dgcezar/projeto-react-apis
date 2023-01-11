@@ -10,21 +10,24 @@ import {
   CardButton,
   CardWaterMarkPokeball,
 } from "./pokemoncardstyle";
-import pokeball from "../Assets/pokeball.png"
+import pokeball from "../Assets/pokeball.png";
 import { PokemonTypes } from "../../Components/PokemonTypes/PokemonTypes";
+import { useNavigate } from "react-router-dom";
+import { goToPokemonDetail } from "../../Router/Coordinator";
 
 export function PokemonCard() {
+  const navigate = useNavigate();
   const [pokemon, setPokemon] = useState([]);
 
   const getPokemon = () => {
     let endpoints = [];
     for (let i = 1; i < 20; i++) {
-        endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
     }
     axios
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setPokemon(res);
       })
       .catch((err) => {
@@ -38,20 +41,24 @@ export function PokemonCard() {
 
   return (
     <>
-      {pokemon.map((poke) => {
-        const pktype = poke.data.types
+      {pokemon.map((poke, index) => {
         return (
-          <CardContainer>
+          <CardContainer key={index}>
             <CardLeftContainer>
               <CardDescription>
                 <h4>{poke.data.id}</h4>
                 <h2>{poke.data.name}</h2>
-                 
-                <span>{pktype[0].type.name}</span>
-                <span>{pktype[1]?.type.name}</span>                
+                <div>{PokemonTypes(poke.data.types[0].type.name)}</div>
+                <div>{PokemonTypes(poke.data.types[1]?.type.name)}</div>
               </CardDescription>
               <CardDetail>
-                <a>Detalhes</a>
+                <button
+                  onClick={() => {
+                    goToPokemonDetail(navigate);
+                  }}
+                >
+                  Detalhes
+                </button>
               </CardDetail>
             </CardLeftContainer>
             <CardRightContainer>
@@ -59,7 +66,10 @@ export function PokemonCard() {
                 <img src={pokeball} />
               </CardWaterMarkPokeball>
               <CardImage>
-                <img src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${poke.data.id}-${poke.data.name}.png`} />
+                <img
+                  src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${poke.data.id}-${poke.data.name}.png`}
+                  alt={`${poke.data.name}`}
+                />
               </CardImage>
               <CardButton>
                 <button>Capturar!</button>
