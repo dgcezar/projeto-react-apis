@@ -11,7 +11,7 @@ import {
   CardWaterMarkPokeball,
 } from "./pokemoncardstyle";
 import pokeball from "../Assets/pokeball.png"
-import { PokemonTypes } from "../PokemonTypes/PokemonTypes";
+import { PokemonTypes } from "../../Components/PokemonTypes/PokemonTypes";
 
 export function PokemonCard() {
   const [pokemon, setPokemon] = useState([]);
@@ -24,6 +24,7 @@ export function PokemonCard() {
     axios
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
       .then((res) => {
+        console.log(res)
         setPokemon(res);
       })
       .catch((err) => {
@@ -38,25 +39,27 @@ export function PokemonCard() {
   return (
     <>
       {pokemon.map((poke) => {
+        const pktype = poke.data.types
         return (
           <CardContainer>
             <CardLeftContainer>
               <CardDescription>
                 <h4>{poke.data.id}</h4>
                 <h2>{poke.data.name}</h2>
-                <span>{poke.data.types[0].type.name}</span>
-                <span>{poke.data.types[1]?.type.name}</span>                
+                 
+                <span>{pktype[0].type.name}</span>
+                <span>{pktype[1]?.type.name}</span>                
               </CardDescription>
               <CardDetail>
                 <a>Detalhes</a>
               </CardDetail>
             </CardLeftContainer>
             <CardRightContainer>
-              {/* <CardWaterMarkPokeball>
+              <CardWaterMarkPokeball>
                 <img src={pokeball} />
-              </CardWaterMarkPokeball> */}
+              </CardWaterMarkPokeball>
               <CardImage>
-                <img src={poke.data.sprites.front_default} />
+                <img src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${poke.data.id}-${poke.data.name}.png`} />
               </CardImage>
               <CardButton>
                 <button>Capturar!</button>

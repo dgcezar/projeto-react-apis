@@ -32,7 +32,11 @@ export const CardDetail = styled.div`
 `
 
 export const CardImage = styled.div`
-    display: flex;
+    display: flex;    
+    img {
+        width: 193px;
+        object-position: right top;
+    }
 `
 
 export const CardButton = styled.div`
@@ -42,7 +46,7 @@ export const CardButton = styled.div`
 export const CardWaterMarkPokeball = styled.div`
 display: flex;
 img {
-object-fit: fill;
+    width: 210.73px;
 
 }
 

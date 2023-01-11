@@ -45,9 +45,9 @@ export const PokemonTypes = (type) => {
     case "rock":
       return <img src={rock} alt="rock type" />;
     case "steel":
-      return <img src={steel} alt="steel type" />;
+      return <img src={steel} alt="steel type" />;    
     case "water":
       return <img src={water} alt="water type" />;
-      break;
+      break;     
   }
 };
