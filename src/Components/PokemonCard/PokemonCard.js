@@ -9,7 +9,7 @@ import {
   CardImage,
   CardButton,
   CardWaterMarkPokeball,
-  BackgroundColorCard
+  BackgroundColorCard,
 } from "./pokemoncardstyle";
 import pokeball from "../Assets/pokeball.png";
 import { PokemonTypes } from "../../Components/PokemonTypes/PokemonTypes";
@@ -44,13 +44,22 @@ export function PokemonCard() {
     <>
       {pokemon.map((poke, index) => {
         return (
-          <CardContainer key={index} style={{backgroundColor: BackgroundColorCard(poke.data.types[0].type.name)}}>
+          <CardContainer
+            key={index}
+            style={{
+              backgroundColor: BackgroundColorCard(
+                poke.data.types[0].type.name
+              ),
+            }}
+          >
             <CardLeftContainer>
               <CardDescription>
-                <h4>{poke.data.id}</h4>
-                <h2>{poke.data.name}</h2>
-                <div>{PokemonTypes(poke.data.types[0].type.name)}</div>
-                <div>{PokemonTypes(poke.data.types[1]?.type.name)}</div>
+                <h4>#0{poke.data.id}</h4>
+                <h2>{poke.data.name.charAt(0).toUpperCase() + poke.data.name.slice(1)}</h2>
+                <article>
+                  <div>{PokemonTypes(poke.data.types[0].type.name)}</div>
+                  <div>{PokemonTypes(poke.data.types[1]?.type.name)}</div>
+                </article>
               </CardDescription>
               <CardDetail>
                 <button
@@ -63,9 +72,6 @@ export function PokemonCard() {
               </CardDetail>
             </CardLeftContainer>
             <CardRightContainer>
-              <CardWaterMarkPokeball>
-                <img src={pokeball} />
-              </CardWaterMarkPokeball>
               <CardImage>
                 <img
                   src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${poke.data.id}-${poke.data.name}.png`}

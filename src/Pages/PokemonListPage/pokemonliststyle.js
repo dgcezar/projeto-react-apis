@@ -14,6 +14,7 @@ export const PokedexPageButtonStyle = styled.button`
 `;
 
 export const PokemonListContainer = styled.section`
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@400;700&display=swap");
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +25,12 @@ export const PokemonListContainer = styled.section`
 
 export const PokemonGridTitle = styled.div`
   width: 1440px;
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+  }
 `;
 
 export const PokemonGrid = styled.div`
