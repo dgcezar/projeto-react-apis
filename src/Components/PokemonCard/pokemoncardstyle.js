@@ -135,10 +135,3 @@ export const CardButton = styled.div`
     cursor: pointer;
   }
 `;
-
-export const CardWaterMarkPokeball = styled.div`
-  display: flex;
-  margin: 0;
-  justify-content: center;
-  width: 185px;
-`;

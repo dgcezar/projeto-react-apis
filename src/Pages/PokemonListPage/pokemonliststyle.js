@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const PokedexPageButtonStyle = styled.button`
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@400;700&display=swap");
   background-color: #33a4f5;
   font-size: 24px;
   font-weight: 700;
@@ -11,6 +12,7 @@ export const PokedexPageButtonStyle = styled.button`
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  margin-left: auto;
 `;
 
 export const PokemonListContainer = styled.section`

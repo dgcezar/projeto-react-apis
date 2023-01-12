@@ -2,11 +2,16 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.section`
   display: flex;
-  padding: 21px 40px 26px 74px;
+  width: 100%;
+  justify-content: center;
+`
+
+export const HeaderBox = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 100%;
+  width: 1360px;
   height: 160px;
   img {
     position: absolute;
