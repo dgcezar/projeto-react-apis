@@ -9,6 +9,7 @@ import {
   CardImage,
   CardButton,
   CardWaterMarkPokeball,
+  BackgroundColorCard
 } from "./pokemoncardstyle";
 import pokeball from "../Assets/pokeball.png";
 import { PokemonTypes } from "../../Components/PokemonTypes/PokemonTypes";
@@ -43,7 +44,7 @@ export function PokemonCard() {
     <>
       {pokemon.map((poke, index) => {
         return (
-          <CardContainer key={index}>
+          <CardContainer key={index} style={{backgroundColor: BackgroundColorCard(poke.data.types[0].type.name)}}>
             <CardLeftContainer>
               <CardDescription>
                 <h4>{poke.data.id}</h4>
