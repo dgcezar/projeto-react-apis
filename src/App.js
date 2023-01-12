@@ -12,6 +12,7 @@ export const GlobalStyled = createGlobalStyle`
 function App() {
   return (
     <div>
+      <GlobalStyled />
       <Router />
     </div>
   );

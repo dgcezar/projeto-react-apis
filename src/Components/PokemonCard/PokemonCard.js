@@ -8,10 +8,8 @@ import {
   CardDetail,
   CardImage,
   CardButton,
-  CardWaterMarkPokeball,
   BackgroundColorCard,
 } from "./pokemoncardstyle";
-import pokeball from "../Assets/pokeball.png";
 import { PokemonTypes } from "../../Components/PokemonTypes/PokemonTypes";
 import { useNavigate } from "react-router-dom";
 import { goToPokemonDetail } from "../../Router/Coordinator";
@@ -28,7 +26,6 @@ export function PokemonCard() {
     axios
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
       .then((res) => {
-        console.log(res);
         setPokemon(res);
       })
       .catch((err) => {
@@ -55,7 +52,10 @@ export function PokemonCard() {
             <CardLeftContainer>
               <CardDescription>
                 <h4>#0{poke.data.id}</h4>
-                <h2>{poke.data.name.charAt(0).toUpperCase() + poke.data.name.slice(1)}</h2>
+                <h2>
+                  {poke.data.name.charAt(0).toUpperCase() +
+                    poke.data.name.slice(1)}
+                </h2>
                 <article>
                   <div>{PokemonTypes(poke.data.types[0].type.name)}</div>
                   <div>{PokemonTypes(poke.data.types[1]?.type.name)}</div>

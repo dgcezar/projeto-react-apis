@@ -52,7 +52,7 @@ export const CardDescription = styled.div`
   height: 55%;
   align-items: flex-start;
   flex-direction: column;
-  padding: 23px 0px 0px 23px;
+  padding: 23px 0px 0px 18px;
   width: 100%;
 
   h4 {
@@ -82,7 +82,7 @@ export const CardDescription = styled.div`
   div {
     img {
       object-fit: cover;
-      width: 99px;
+      width: 96px;
       height: 31px;
     }
   }
@@ -95,7 +95,7 @@ export const CardDetail = styled.div`
     display: flex;
     align-items: flex-end;
     padding-bottom: 20px;
-    padding-left: 23px;
+    padding-left: 18px;
     background: none;
     border: none;
     font-family: "Poppins", sans-serif;
@@ -103,6 +103,7 @@ export const CardDetail = styled.div`
     font-size: 16px;
     color: #fff;
     text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
@@ -131,6 +132,7 @@ export const CardButton = styled.div`
     color: #0f0f0f;
     margin-top: 25px;
     margin-right: 20px;
+    cursor: pointer;
   }
 `;
 

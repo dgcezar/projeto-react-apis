@@ -18,15 +18,19 @@ export const PokemonListContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 2200px;
   background-color: #5e5e5e; ;
 `;
 
 export const PokemonGridTitle = styled.div`
+  display: flex;
+  align-items: center;
   width: 1440px;
+  height: 200px;
   h1 {
-    font-family: 'Poppins', sans-serif;
+    padding-left: 40px;
+    font-family: "Poppins", sans-serif;
     font-size: 48px;
     font-weight: 700;
     color: #fff;
@@ -36,9 +40,8 @@ export const PokemonGridTitle = styled.div`
 export const PokemonGrid = styled.div`
   display: grid;
   width: 1440px;
-  height: 100%;
   padding-left: 40px;
   padding-right: 40px;
-  grid-template-columns: 35% 35% 35%;
-  grid-template-rows: 25% 25% 25%;
+  grid-template-columns: 34% 34% 34%;
+  grid-auto-rows: minmax(18%, auto);
 `;
