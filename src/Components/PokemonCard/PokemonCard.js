@@ -17,6 +17,7 @@ import { goToPokemonDetail } from "../../Router/Coordinator";
 export function PokemonCard() {
   const navigate = useNavigate();
   const [pokemon, setPokemon] = useState([]);
+  const [pokemonPokedex, setPokemonPokedex] = useState([])
 
   const getPokemon = () => {
     let endpoints = [];
@@ -36,13 +37,30 @@ export function PokemonCard() {
   useEffect(() => {
     getPokemon();
   }, []);
+  
+const addCardOnPokedex = (i) => {
+    const newPokemonCard = [...pokemon]
+    const cardAdd = i
+    const findCardFromCardList = newPokemonCard.find((i) => {
+      return i === cardAdd 
+    })
+    if (findCardFromCardList) {
+      newPokemonCard.push( ...cardAdd)
+    }
+    setPokemonPokedex(newPokemonCard)
+  }
+
+  // const selectedPokemon = (e) => {
+  //   setPokemonPokedex(e)
+  //   console.log(pokemonPokedex)
+  // }
 
   return (
     <>
-      {pokemon.map((poke, index) => {
+      {pokemon.map((poke) => {
         return (
           <CardContainer
-            key={index}
+            key={poke.data.id}
             style={{
               backgroundColor: BackgroundColorCard(
                 poke.data.types[0].type.name
@@ -79,7 +97,7 @@ export function PokemonCard() {
                 />
               </CardImage>
               <CardButton>
-                <button>Capturar!</button>
+                <button onClick={()=>addCardOnPokedex()}>Capturar!</button>
               </CardButton>
             </CardRightContainer>
           </CardContainer>
@@ -88,5 +106,3 @@ export function PokemonCard() {
     </>
   );
 }
-
-export default PokemonCard;
