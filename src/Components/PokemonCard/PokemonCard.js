@@ -16,48 +16,10 @@ import { goToPokemonDetail } from "../../Router/Coordinator";
 
 export function PokemonCard() {
   const navigate = useNavigate();
-  const [pokemon, setPokemon] = useState([]);
-  const [pokemonPokedex, setPokemonPokedex] = useState([])
-
-  const getPokemon = () => {
-    let endpoints = [];
-    for (let i = 1; i < 20; i++) {
-      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
-    }
-    axios
-      .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((res) => {
-        setPokemon(res);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
-
-  useEffect(() => {
-    getPokemon();
-  }, []);
-  
-const addCardOnPokedex = (i) => {
-    const newPokemonCard = [...pokemon]
-    const cardAdd = i
-    const findCardFromCardList = newPokemonCard.find((i) => {
-      return i === cardAdd 
-    })
-    if (findCardFromCardList) {
-      newPokemonCard.push( ...cardAdd)
-    }
-    setPokemonPokedex(newPokemonCard)
-  }
-
-  // const selectedPokemon = (e) => {
-  //   setPokemonPokedex(e)
-  //   console.log(pokemonPokedex)
-  // }
 
   return (
     <>
-      {pokemon.map((poke) => {
+      {/* {pokemon.map((poke) => {
         return (
           <CardContainer
             key={poke.data.id}
@@ -97,12 +59,12 @@ const addCardOnPokedex = (i) => {
                 />
               </CardImage>
               <CardButton>
-                <button onClick={()=>addCardOnPokedex()}>Capturar!</button>
+                <button>Capturar!</button>
               </CardButton>
             </CardRightContainer>
           </CardContainer>
         );
-      })}
+      })} */}
     </>
   );
 }
