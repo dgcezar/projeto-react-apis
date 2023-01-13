@@ -18,13 +18,13 @@ function PokemonListPage() {
 
   const { pokeList, addToPokedex, pokedexList } = context;
 
-  // const filteredPokeList = () => {
-  //   pokeList.filter((pokeInList) => {
-  //     !pokedexList.find((pokeInPokedex) => {
-  //       pokeInList.data.name === pokeInPokedex.data.name;
-  //     });
-  //   });
-  // };
+  const filteredPokeList = () =>
+    pokeList.filter(
+      (pokemonInList) =>
+        !pokedexList.find(
+          (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
+        )
+    );
 
   const pokedexPageButton = (
     <PokedexPageButtonStyle onClick={() => goToPokedexPage(navigate)}>
@@ -40,17 +40,16 @@ function PokemonListPage() {
           <h1>Todos Pokémons</h1>
         </PokemonGridTitle>
         <PokemonGrid>
-          {pokeList.map((poke) => {
-            return (
-              <PokemonCard
-                key={poke.data.id}
-                id={poke.data.id}
-                name={poke.data.name}
-                type={poke.data.types}
-                addToPokedex={addToPokedex}
-              />
-            );
-          })}
+          {filteredPokeList().map((poke) => (
+            <PokemonCard
+              key={poke.url}
+              pokemonUrl={poke.url}
+              id={poke.id}
+              name={poke.name}
+              type={poke.types}
+              addToPokedex={addToPokedex}
+            />
+          ))}
         </PokemonGrid>
       </PokemonListContainer>
     </>

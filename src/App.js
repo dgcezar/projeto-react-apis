@@ -3,6 +3,7 @@ import Router from "./Router/Router";
 import { GlobalContext } from "./Contexts/GlobalContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "./Components/Url/Url";
 
 export const GlobalStyled = createGlobalStyle`
   *{
@@ -17,23 +18,18 @@ function App() {
   const [pokedexList, setPokedexList] = useState([]);
 
   useEffect(() => {
-    getPokeList();
+    fetchPokeList();
   }, []);
 
-  const getPokeList = () => {
-    let endpoints = [];
-    for (let i = 1; i < 20; i++) {
-      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
+  const fetchPokeList = async () => {
+    try {
+      const response = await axios.get(BASE_URL);
+      setPokeList(response.data.results);
+    } catch (error) {
+      console.log(error.response)
     }
-    axios
-      .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((res) => {
-        setPokeList(res);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
+  }
+  
 
   const addToPokedex = (pokeAdd) => {
     const isAlreadtOnPokedex = pokedexList.find(
@@ -57,7 +53,7 @@ function App() {
   const context = {
     pokeList: pokeList,
     addToPokedex: addToPokedex,
-    pokeList: pokeList,
+    pokedexList: pokedexList,
     removeFromPokedexList: removeFromPokedexList,
   };
 
