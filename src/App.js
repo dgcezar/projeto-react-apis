@@ -37,7 +37,7 @@ function App() {
 
   const addToPokedex = (pokeAdd) => {
     const isAlreadtOnPokedex = pokedexList.find(
-      (poke) => poke.data.name === pokeAdd.name
+      (poke) => poke.data.name === pokeAdd.data.name
     );
 
     if (!isAlreadtOnPokedex) {
@@ -48,7 +48,7 @@ function App() {
 
   const removeFromPokedexList = (pokeToRemove) => {
     const newPokedexList = pokedexList.filter(
-      (poke) => poke.name !== pokeToRemove.name
+      (poke) => poke.data.name !== pokeToRemove.data.name
     );
 
     setPokedexList(newPokedexList);

@@ -11,60 +11,61 @@ import {
   BackgroundColorCard,
 } from "./pokemoncardstyle";
 import { PokemonTypes } from "../../Components/PokemonTypes/PokemonTypes";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { goToPokemonDetail } from "../../Router/Coordinator";
 
-export function PokemonCard() {
+export function PokemonCard(props) {
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const { addToPokedex, removeFromPokedex } = props;
 
   return (
     <>
-      {/* {pokemon.map((poke) => {
-        return (
-          <CardContainer
-            key={poke.data.id}
-            style={{
-              backgroundColor: BackgroundColorCard(
-                poke.data.types[0].type.name
-              ),
-            }}
-          >
-            <CardLeftContainer>
-              <CardDescription>
-                <h4>#0{poke.data.id}</h4>
-                <h2>
-                  {poke.data.name.charAt(0).toUpperCase() +
-                    poke.data.name.slice(1)}
-                </h2>
-                <article>
-                  <div>{PokemonTypes(poke.data.types[0].type.name)}</div>
-                  <div>{PokemonTypes(poke.data.types[1]?.type.name)}</div>
-                </article>
-              </CardDescription>
-              <CardDetail>
-                <button
-                  onClick={() => {
-                    goToPokemonDetail(navigate);
-                  }}
-                >
-                  Detalhes
-                </button>
-              </CardDetail>
-            </CardLeftContainer>
-            <CardRightContainer>
-              <CardImage>
-                <img
-                  src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${poke.data.id}-${poke.data.name}.png`}
-                  alt={`${poke.data.name}`}
-                />
-              </CardImage>
-              <CardButton>
-                <button>Capturar!</button>
-              </CardButton>
-            </CardRightContainer>
-          </CardContainer>
-        );
-      })} */}
+      <CardContainer
+        key={props.key}
+        style={{
+          backgroundColor: BackgroundColorCard(props.type[0].type.name),
+        }}
+      >
+        <CardLeftContainer>
+          <CardDescription>
+            <h4>#0{props.id}</h4>
+            <h2>
+              {props.name.charAt(0).toUpperCase() + props.name.slice(1)}
+            </h2>
+            <article>
+              <div>{PokemonTypes(props.type[0].type.name)}</div>
+              <div>{PokemonTypes(props.type[1]?.type.name)}</div>
+            </article>
+          </CardDescription>
+          <CardDetail>
+            <button
+              onClick={() => {
+                goToPokemonDetail(navigate);
+              }}
+            >
+              Detalhes
+            </button>
+          </CardDetail>
+        </CardLeftContainer>
+        <CardRightContainer>
+          <CardImage>
+            <img
+              src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${props.id}-${props.name}.png`}
+              alt={`${props.name}`}
+            />
+          </CardImage>
+          <CardButton>
+            {location.pathname === "/" ? (
+              <button onClick={() => {addToPokedex()}}>Capturar</button>
+            ) : (
+              <button onClick={() => {removeFromPokedex()}}>Remover da Pokedex</button>
+            )}
+          </CardButton>
+        </CardRightContainer>
+      </CardContainer>      
     </>
   );
 }
