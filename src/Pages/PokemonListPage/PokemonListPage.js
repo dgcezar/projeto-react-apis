@@ -18,13 +18,13 @@ function PokemonListPage() {
 
   const { pokeList, addToPokedex, pokedexList, } = context;
 
-  // const filteredPokeList = () =>
-  //   pokeList.filter(
-  //     (pokemonInList) =>
-  //       !pokedexList.find(
-  //         (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
-  //       )
-  //   );
+  const filteredPokeList = () =>
+    pokeList.filter(
+      (pokemonInList) =>
+        !pokedexList.find(
+          (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
+        )
+    );
 
   const pokedexPageButton = (
     <PokedexPageButtonStyle onClick={() => goToPokedexPage(navigate)}>
@@ -40,7 +40,7 @@ function PokemonListPage() {
           <h1>Todos Pokémons</h1>
         </PokemonGridTitle>
         <PokemonGrid>
-          {pokeList.map((poke) => (
+          {filteredPokeList().map((poke) => (
             <PokemonCard
               key={poke.url}
               pokemonUrl={poke.url}          

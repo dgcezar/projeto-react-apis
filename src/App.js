@@ -31,20 +31,20 @@ function App() {
     }
   }  
 
-  const addToPokedex = (pokeAdd) => {
-    const isAlreadtOnPokedex = pokedexList.find(
-      (poke) => poke.data.name === pokeAdd.data.name
+  const addToPokedex = (pokemonToAdd) => {
+    const isAlreadytOnPokedex = pokedexList.find(
+      (pokemonInPokedex) => pokemonInPokedex.name === pokemonToAdd.name
     );
 
-    if (!isAlreadtOnPokedex) {
-      const newPokedexList = [...pokedexList, pokeAdd];
-      setPokeList(newPokedexList);
+    if (!isAlreadytOnPokedex) {
+      const newPokedexList = [...pokedexList, pokemonToAdd];
+      setPokedexList(newPokedexList);
     }
   };
 
-  const removeFromPokedexList = (pokeToRemove) => {
+  const removeFromPokedexList = (pokemonToRemove) => {
     const newPokedexList = pokedexList.filter(
-      (poke) => poke.data.name !== pokeToRemove.data.name
+      (pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name
     );
 
     setPokedexList(newPokedexList);

@@ -33,13 +33,10 @@ function PokedexPage() {
           <h1>Meus Pokémons</h1>
         </PokedexGridTitle>
         <PokedexGrid>
-          {pokedexList.map((poke) => (
+          {pokedexList.map((pokemon) => (
             <PokemonCard
-              key={poke.name}
-              pokemonUrl={`${BASE_URL}/${poke.name}`}
-              id={poke.id}
-              name={poke.name}
-              type={poke.types}
+              key={pokemon.name}
+              pokemonUrl={`${BASE_URL}/${pokemon.name}`}
               removeFromPokedexList={removeFromPokedexList}
             />
           ))}

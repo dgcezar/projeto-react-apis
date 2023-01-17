@@ -21,7 +21,7 @@ export function PokemonCard(props) {
   
   const navigate = useNavigate();  
 
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemon, setPokemon] = useState({});
 
   useEffect(() => {
     fetchPokemon()    
@@ -39,13 +39,11 @@ export function PokemonCard(props) {
   };
   
   const bgColor = pokemon.types?.map((typ) => (BackgroundColorCard(typ?.type.name)))
-  const firstTypeColor = bgColor?.find((opa)=>opa)
-
-  console.log(firstTypeColor)
+  const firstTypeColor = bgColor?.find((typeColor)=>typeColor)
 
   return (
     <>
-      <CardContainer
+      <CardContainer     
       style={{
         backgroundColor: `${firstTypeColor}`
       }}
