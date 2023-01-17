@@ -26,10 +26,10 @@ function App() {
       const response = await axios.get(BASE_URL);
       setPokeList(response.data.results);
     } catch (error) {
+      console.log("Erro na busca da lista de pokemons")
       console.log(error.response)
     }
-  }
-  
+  }  
 
   const addToPokedex = (pokeAdd) => {
     const isAlreadtOnPokedex = pokedexList.find(

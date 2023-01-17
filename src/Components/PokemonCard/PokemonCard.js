@@ -15,44 +15,48 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export function PokemonCard(props) {
-  const navigate = useNavigate();
-
-  const location = useLocation();
-
-  const [pokemon, setPokemon] = useState({})
-
   const { pokemonUrl, addToPokedex, removeFromPokedexList } = props;
 
+  const location = useLocation();
+  
+  const navigate = useNavigate();  
+
+  const [pokemon, setPokemon] = useState([]);
+
   useEffect(() => {
-    fetchPokemon();
-  }, [])
+    fetchPokemon()    
+  
+  }, []);
 
   const fetchPokemon = async () => {
     try {
-      const response = await axios.get(pokemonUrl)
+      const response = await axios.get(pokemonUrl);
       setPokemon(response.data);
     } catch (error) {
-      console.log(error)
+      console.log("Erro na busca da lista de pokemons")
+      console.log(error);
     }
-  }
+  };
+  
 
   return (
     <>
-      <CardContainer        
-        // style={{
-        //   backgroundColor: BackgroundColorCard(pokemon.types[0].type.name),
-        // }}
+      <CardContainer
+      // style={{
+      //   backgroundColor: BackgroundColorCard(pokemon.types[0].type.name)
+      // }}
       >
         <CardLeftContainer>
           <CardDescription>
             <h4>#0{pokemon.id}</h4>
-            {/* <h2>
-              {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-            </h2> */}
-            {/* <article>
-              <div>{PokemonTypes(pokemon.types[0].type.name)}</div>
-              <div>{PokemonTypes(pokemon.types[1]?.type.name)}</div>
-            </article> */}
+            <h2>{pokemon.name}</h2>
+            <article>
+              {pokemon.types?.map((typ) => (
+                <div>
+                  <div>{PokemonTypes(typ?.type.name)}</div>
+                </div>
+              ))}
+            </article>
           </CardDescription>
           <CardDetail>
             <button
@@ -75,11 +79,13 @@ export function PokemonCard(props) {
             {location.pathname === "/" ? (
               <button onClick={() => addToPokedex(pokemon)}>Capturar</button>
             ) : (
-              <button onClick={() => removeFromPokedexList(pokemon)}>Remover da Pokedex</button>
+              <button onClick={() => removeFromPokedexList(pokemon)}>
+                Remover da Pokedex
+              </button>
             )}
           </CardButton>
         </CardRightContainer>
-      </CardContainer>      
+      </CardContainer>
     </>
   );
 }
