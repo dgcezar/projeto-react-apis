@@ -44,6 +44,6 @@ export const PokemonGrid = styled.div`
   width: 1440px;
   padding-left: 40px;
   padding-right: 40px;
-  grid-template-columns: 34% 34% 34%;
-  grid-auto-rows: minmax(18%, auto);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 60px;
 `;

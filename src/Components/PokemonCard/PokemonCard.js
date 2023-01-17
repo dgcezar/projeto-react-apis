@@ -7,6 +7,8 @@ import {
   CardImage,
   CardButton,
   BackgroundColorCard,
+  AddToPokedexButton,
+  RemoveFromPokedexButton,
 } from "./pokemoncardstyle";
 import { PokemonTypes } from "../../Components/PokemonTypes/PokemonTypes";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -79,11 +81,11 @@ export function PokemonCard(props) {
           </CardImage>
           <CardButton>
             {location.pathname === "/" ? (
-              <button onClick={() => addToPokedex(pokemon)}>Capturar</button>
+              <AddToPokedexButton onClick={() => addToPokedex(pokemon)}>Capturar</AddToPokedexButton>
             ) : (
-              <button onClick={() => removeFromPokedexList(pokemon)}>
-                Remover da Pokedex
-              </button>
+              <RemoveFromPokedexButton onClick={() => removeFromPokedexList(pokemon)}>
+                Excluir
+              </RemoveFromPokedexButton>
             )}
           </CardButton>
         </CardRightContainer>

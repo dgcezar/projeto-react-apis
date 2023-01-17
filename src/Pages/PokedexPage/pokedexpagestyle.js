@@ -36,8 +36,8 @@ export const PokedexGridTitle = styled.div`
 
 export const PokedexGrid = styled.div`
   display: grid;
-  grid-template-columns: 32% 32% 32%;
-  grid-auto-rows: minmax(18%, auto);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 60px;
   width: 1440px;
-  height: 100%;
+  height: 577px;
 `;
