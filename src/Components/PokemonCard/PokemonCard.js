@@ -38,13 +38,17 @@ export function PokemonCard(props) {
     }
   };
   
+  const bgColor = pokemon.types?.map((typ) => (BackgroundColorCard(typ?.type.name)))
+  const firstTypeColor = bgColor?.find((opa)=>opa)
+
+  console.log(firstTypeColor)
 
   return (
     <>
       <CardContainer
-      // style={{
-      //   backgroundColor: BackgroundColorCard(pokemon.types[0].type.name)
-      // }}
+      style={{
+        backgroundColor: `${firstTypeColor}`
+      }}
       >
         <CardLeftContainer>
           <CardDescription>
