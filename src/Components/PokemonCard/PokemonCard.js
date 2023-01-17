@@ -1,5 +1,3 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import {
   CardContainer,
   CardDescription,
@@ -9,84 +7,89 @@ import {
   CardImage,
   CardButton,
   BackgroundColorCard,
+  AddToPokedexButton,
+  RemoveFromPokedexButton,
 } from "./pokemoncardstyle";
 import { PokemonTypes } from "../../Components/PokemonTypes/PokemonTypes";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { goToPokemonDetail } from "../../Router/Coordinator";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-export function PokemonCard() {
-  const navigate = useNavigate();
-  const [pokemon, setPokemon] = useState([]);
+export function PokemonCard(props) {
+  const { pokemonUrl, addToPokedex, removeFromPokedexList } = props;
 
-  const getPokemon = () => {
-    let endpoints = [];
-    for (let i = 1; i < 20; i++) {
-      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
-    }
-    axios
-      .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((res) => {
-        setPokemon(res);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
+  const location = useLocation();
+  
+  const navigate = useNavigate();  
+
+  const [pokemon, setPokemon] = useState({});
 
   useEffect(() => {
-    getPokemon();
+    fetchPokemon()    
+  
   }, []);
+
+  const fetchPokemon = async () => {
+    try {
+      const response = await axios.get(pokemonUrl);
+      setPokemon(response.data);
+    } catch (error) {
+      console.log("Erro na busca da lista de pokemons")
+      console.log(error);
+    }
+  };
+  
+  const bgColor = pokemon.types?.map((typ) => (BackgroundColorCard(typ?.type.name)))
+  const firstTypeColor = bgColor?.find((typeColor)=>typeColor)
 
   return (
     <>
-      {pokemon.map((poke, index) => {
-        return (
-          <CardContainer
-            key={index}
-            style={{
-              backgroundColor: BackgroundColorCard(
-                poke.data.types[0].type.name
-              ),
-            }}
-          >
-            <CardLeftContainer>
-              <CardDescription>
-                <h4>#0{poke.data.id}</h4>
-                <h2>
-                  {poke.data.name.charAt(0).toUpperCase() +
-                    poke.data.name.slice(1)}
-                </h2>
-                <article>
-                  <div>{PokemonTypes(poke.data.types[0].type.name)}</div>
-                  <div>{PokemonTypes(poke.data.types[1]?.type.name)}</div>
-                </article>
-              </CardDescription>
-              <CardDetail>
-                <button
-                  onClick={() => {
-                    goToPokemonDetail(navigate);
-                  }}
-                >
-                  Detalhes
-                </button>
-              </CardDetail>
-            </CardLeftContainer>
-            <CardRightContainer>
-              <CardImage>
-                <img
-                  src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${poke.data.id}-${poke.data.name}.png`}
-                  alt={`${poke.data.name}`}
-                />
-              </CardImage>
-              <CardButton>
-                <button>Capturar!</button>
-              </CardButton>
-            </CardRightContainer>
-          </CardContainer>
-        );
-      })}
+      <CardContainer     
+      style={{
+        backgroundColor: `${firstTypeColor}`
+      }}
+      >
+        <CardLeftContainer>
+          <CardDescription>
+            <h4>#0{pokemon.id}</h4>
+            <h2>{pokemon.name}</h2>
+            <article>
+              {pokemon.types?.map((typ) => (
+                <div>
+                  <div>{PokemonTypes(typ?.type.name)}</div>
+                </div>
+              ))}
+            </article>
+          </CardDescription>
+          <CardDetail>
+            <button
+              onClick={() => {
+                goToPokemonDetail(navigate);
+              }}
+            >
+              Detalhes
+            </button>
+          </CardDetail>
+        </CardLeftContainer>
+        <CardRightContainer>
+          <CardImage>
+            <img
+              src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${pokemon.id}-${pokemon.name}.png`}
+              alt={`${pokemon.name}`}
+            />
+          </CardImage>
+          <CardButton>
+            {location.pathname === "/" ? (
+              <AddToPokedexButton onClick={() => addToPokedex(pokemon)}>Capturar</AddToPokedexButton>
+            ) : (
+              <RemoveFromPokedexButton onClick={() => removeFromPokedexList(pokemon)}>
+                Excluir
+              </RemoveFromPokedexButton>
+            )}
+          </CardButton>
+        </CardRightContainer>
+      </CardContainer>
     </>
   );
 }
-
-export default PokemonCard;

@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header/Header";
-import PokemonCard from "../../Components/PokemonCard/PokemonCard";
+import { PokemonCard } from "../../Components/PokemonCard/PokemonCard";
+import { GlobalContext } from "../../Contexts/GlobalContext";
 import { goToPokedexPage } from "../../Router/Coordinator";
 import {
   PokedexPageButtonStyle,
@@ -11,11 +13,25 @@ import {
 
 function PokemonListPage() {
   const navigate = useNavigate();
+
+  const context = useContext(GlobalContext);
+
+  const { pokeList, addToPokedex, pokedexList, } = context;
+
+  const filteredPokeList = () =>
+    pokeList.filter(
+      (pokemonInList) =>
+        !pokedexList.find(
+          (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
+        )
+    );
+
   const pokedexPageButton = (
     <PokedexPageButtonStyle onClick={() => goToPokedexPage(navigate)}>
       Pokédex
     </PokedexPageButtonStyle>
   );
+
   return (
     <>
       <Header pokedexbutton={pokedexPageButton} />
@@ -24,7 +40,13 @@ function PokemonListPage() {
           <h1>Todos Pokémons</h1>
         </PokemonGridTitle>
         <PokemonGrid>
-          <PokemonCard />          
+          {filteredPokeList().map((poke) => (
+            <PokemonCard
+              key={poke.url}
+              pokemonUrl={poke.url}          
+              addToPokedex={addToPokedex}
+            />
+          ))}
         </PokemonGrid>
       </PokemonListContainer>
     </>

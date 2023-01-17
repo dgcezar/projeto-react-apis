@@ -120,18 +120,34 @@ export const CardButton = styled.div`
   display: flex;
   height: 100%;
   justify-content: end;
-  button {
-    background-color: #fff;
-    width: 146px;
-    height: 38px;
-    border-radius: 8px;
-    border-width: 0;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #0f0f0f;
-    margin-top: 25px;
-    margin-right: 20px;
-    cursor: pointer;
-  }
 `;
+
+export const AddToPokedexButton = styled.button`
+  background-color: #fff;
+  width: 146px;
+  height: 38px;
+  border-radius: 8px;
+  border-width: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #0f0f0f;
+  margin-top: 25px;
+  margin-right: 20px;
+  cursor: pointer;
+`;
+
+export const RemoveFromPokedexButton = styled.button`
+  background-color: #FF6262;
+  width: 146px;
+  height: 38px;
+  border-radius: 8px;
+  border-width: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  margin-top: 25px;
+  margin-right: 20px;
+  cursor: pointer;
+`

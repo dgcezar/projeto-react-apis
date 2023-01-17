@@ -7,9 +7,9 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<PokemonListPage />} />
-        <Route path="pokedex" element={<PokedexPage />} />
-        <Route path="pokemonDetail" element={<PokemonDetailPage />} />
+        <Route path="/" element={<PokemonListPage />} />
+        <Route path="/pokedex" element={<PokedexPage />} />
+        <Route path="/pokemonDetail" element={<PokemonDetailPage />} />
       </Routes>
     </BrowserRouter>
   );
