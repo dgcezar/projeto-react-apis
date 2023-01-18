@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pokeball2 from "../Assets/pokeball.png";
+import pokeball2 from "../Assets/pokeball2.png";
 
 export const PokemonDetailDescriptionContainer = styled.div`
   display: flex;
@@ -8,6 +8,8 @@ export const PokemonDetailDescriptionContainer = styled.div`
   height: 663px;
   border-radius: 38px;
   background-color: #729f92;
+  background: no-repeat url(${pokeball2});
+  background-position: 100%;
 `;
 
 export const PokemonDetailLeftContainer = styled.div`
@@ -24,7 +26,6 @@ export const PokemonDetailRightContainer = styled.div`
   width: 50%;
   height: 100%;
   padding: 20px 40px;
-  background-image: url(${pokeball2});
 `;
 
 export const PokemonDetailImage = styled.div`

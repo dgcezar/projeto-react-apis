@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BackgroundColorCard } from "../PokemonCard/pokemoncardstyle";
 import { PokemonTypes } from "../PokemonTypes/PokemonTypes";
 import {
   BaseStatsContainer,
@@ -32,9 +33,18 @@ function PokemonDetailCard(props) {
     }
   };
 
+  const bgColor = pokemonDetail.types?.map((typ) =>
+    BackgroundColorCard(typ?.type.name)
+  );
+  const firstTypeColor = bgColor?.find((typeColor) => typeColor);
+
   return (
     <>
-      <PokemonDetailDescriptionContainer>
+      <PokemonDetailDescriptionContainer
+        style={{
+          backgroundColor: `${firstTypeColor}`,
+        }}
+      >
         <PokemonDetailLeftContainer>
           <PokemonDetailImage>
             <img src={pokemonDetail.sprites?.front_default} />
@@ -58,10 +68,10 @@ function PokemonDetailCard(props) {
               </article>
             </div>
             <PokemonDetailPokeImg>
-            <img
-              src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${pokemonDetail.id}-${pokemonDetail.name}.png`}
-              alt={`${pokemonDetail.name}`}
-            />
+              <img
+                src={`https://www.grindosaur.com/img/games/pokemon/pokedex/${pokemonDetail.id}-${pokemonDetail.name}.png`}
+                alt={`${pokemonDetail.name}`}
+              />
             </PokemonDetailPokeImg>
           </PokemonDetailPokemonDescription>
           <PokemonDetailMovesContainer>
