@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BaseStatsNames } from "../BaseStatsNames/BaseStatsNames";
 import { BackgroundColorCard } from "../PokemonCard/pokemoncardstyle";
 import { PokemonTypes } from "../PokemonTypes/PokemonTypes";
 import {
@@ -12,6 +13,8 @@ import {
   PokemonDetailPokeImg,
   PokemonDetailPokemonDescription,
   PokemonDetailRightContainer,
+  ProgressBar,
+  ProgressBarContainer,
 } from "./pokemondetailcardstyle";
 
 function PokemonDetailCard(props) {
@@ -52,14 +55,28 @@ function PokemonDetailCard(props) {
           </PokemonDetailImage>
           <PokemonDetailBaseStatsContainer>
             <h3>Base stats</h3>
+            {pokemonDetail.stats?.map((pokeStats) => (
+              <BaseStatsContainer>
+                <span>{BaseStatsNames(pokeStats?.stat.name)}</span>
+                <span>{pokeStats?.base_stat}</span>
+                <ProgressBarContainer>
+                  <ProgressBar style={{ width: `${pokeStats?.base_stat}%` }} />
+                </ProgressBarContainer>
+              </BaseStatsContainer>
+            ))}
+            <div>
+              <span>Total</span>
+            </div>
           </PokemonDetailBaseStatsContainer>
         </PokemonDetailLeftContainer>
         <PokemonDetailRightContainer>
           <PokemonDetailPokemonDescription>
             <div>
               <h4>#0{pokemonDetail.id}</h4>
-              <h2>{pokemonDetail.name?.charAt(0).toUpperCase() +
-                    pokemonDetail.name?.slice(1)}</h2>
+              <h2>
+                {pokemonDetail.name?.charAt(0).toUpperCase() +
+                  pokemonDetail.name?.slice(1)}
+              </h2>
               <article>
                 {pokemonDetail.types?.map((typ) => (
                   <div>
@@ -78,8 +95,13 @@ function PokemonDetailCard(props) {
           <PokemonDetailMovesContainer>
             <h3>Moves:</h3>
             {pokemonDetail.moves?.map(
-              (mov, index) => index < 4 && <div>{mov?.move.name.charAt(0).toUpperCase() +
-                mov?.move.name?.slice(1)}</div>
+              (mov, index) =>
+                index < 4 && (
+                  <div>
+                    {mov?.move.name.charAt(0).toUpperCase() +
+                      mov?.move.name?.slice(1)}
+                  </div>
+                )
             )}
           </PokemonDetailMovesContainer>
         </PokemonDetailRightContainer>

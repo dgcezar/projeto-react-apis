@@ -9,7 +9,7 @@ export const PokemonDetailDescriptionContainer = styled.div`
   border-radius: 38px;
   background-color: #729f92;
   background: no-repeat url(${pokeball2});
-  background-position: 100%;  
+  background-position: 100%;
 `;
 
 export const PokemonDetailLeftContainer = styled.div`
@@ -88,8 +88,8 @@ export const PokemonDetailPokemonDescription = styled.div`
 export const PokemonDetailPokeImg = styled.div`
   img {
     object-fit: cover;
-    width: 270px;
-    margin-top: -150px;
+    width: 320px;
+    margin-top: -180px;
   }
 `;
 
@@ -102,7 +102,7 @@ export const PokemonDetailMovesContainer = styled.div`
   background-color: #fff;
   padding: 20px;
   gap: 20px;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
 
   h3 {
     font-family: "Inter", sans-serif;
@@ -115,13 +115,35 @@ export const PokemonDetailMovesContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 14px;
     width: 102px;
     height: 37px;
-    background-color: #ECECEC;
+    background-color: #ececec;
     border: 1px dashed rgba(0, 0, 0, 0.14);
     border-radius: 12px;
   }
+`;
+
+export const BaseStatsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-width: 1px;
+  border-color: gray;
+  border-style: none none solid none;
+  
+`
+
+export const ProgressBarContainer = styled.div`
+  width: 160px;
+  height: 10px;
+`;
+
+export const ProgressBar = styled.div`
+  width: 100px;
+  height: 10px;
+  border-radius: 4px;
+  background: #f3752b;
 `;
