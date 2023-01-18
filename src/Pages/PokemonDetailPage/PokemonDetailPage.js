@@ -39,8 +39,7 @@ function PokemonDetailPage() {
       />
       <PokemonDetailContainer>
         <PokemonDetailTitle>
-          <h1>Detalhes</h1>          
-          <p>{BASE_URL}/{id}</p>
+          <h1>Detalhes</h1>   
         </PokemonDetailTitle>
         <div>
           <PokemonDetailCard
