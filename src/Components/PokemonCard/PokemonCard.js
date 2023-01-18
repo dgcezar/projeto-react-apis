@@ -54,7 +54,8 @@ export function PokemonCard(props) {
         <CardLeftContainer>
           <CardDescription>
             <h4>#0{pokemon.id}</h4>
-            <h2>{pokemon.name}</h2>
+            <h2>{pokemon.name?.charAt(0).toUpperCase() +
+                    pokemon.name?.slice(1)}</h2>
             <article>
               {pokemon.types?.map((typ) => (
                 <div>

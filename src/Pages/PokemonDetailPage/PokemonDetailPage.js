@@ -15,7 +15,7 @@ import {
 function PokemonDetailPage() {
   const navigate = useNavigate();
 
-  let {id} = useParams()
+  let { id } = useParams();
 
   const context = useContext(GlobalContext);
 
@@ -36,15 +36,17 @@ function PokemonDetailPage() {
       <Header
         addPokemonOnPokedex={addPokemonOnPokedex}
         returnToMainPage={returnToMainPage}
-      />
+      >
+        
+      </Header>
       <PokemonDetailContainer>
         <PokemonDetailTitle>
-          <h1>Detalhes</h1>   
+          <h1>Detalhes</h1>
         </PokemonDetailTitle>
         <div>
           <PokemonDetailCard
             key={pokeList.name}
-            pokemonUrl={`${BASE_URL}/${id}`}            
+            pokemonUrl={`${BASE_URL}/${id}`}
           />
         </div>
       </PokemonDetailContainer>

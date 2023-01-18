@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-export const ReturnToMainPageButton = styled.button`
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@400;700&display=swap");
+export const ReturnToMainPageButton = styled.button`  
   border: none;
   background: none;
   text-decoration: underline;

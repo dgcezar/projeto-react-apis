@@ -9,7 +9,7 @@ export const PokemonDetailDescriptionContainer = styled.div`
   border-radius: 38px;
   background-color: #729f92;
   background: no-repeat url(${pokeball2});
-  background-position: 100%;
+  background-position: 100%;  
 `;
 
 export const PokemonDetailLeftContainer = styled.div`
@@ -102,11 +102,26 @@ export const PokemonDetailMovesContainer = styled.div`
   background-color: #fff;
   padding: 20px;
   gap: 20px;
+  margin-bottom: 10px;  
 
   h3 {
     font-family: "Inter", sans-serif;
     font-weight: 800;
     font-size: 24px;
     color: #000;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    width: 102px;
+    height: 37px;
+    background-color: #ECECEC;
+    border: 1px dashed rgba(0, 0, 0, 0.14);
+    border-radius: 12px;
   }
 `;

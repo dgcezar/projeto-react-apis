@@ -58,7 +58,8 @@ function PokemonDetailCard(props) {
           <PokemonDetailPokemonDescription>
             <div>
               <h4>#0{pokemonDetail.id}</h4>
-              <h2>{pokemonDetail.name}</h2>
+              <h2>{pokemonDetail.name?.charAt(0).toUpperCase() +
+                    pokemonDetail.name?.slice(1)}</h2>
               <article>
                 {pokemonDetail.types?.map((typ) => (
                   <div>
@@ -77,7 +78,8 @@ function PokemonDetailCard(props) {
           <PokemonDetailMovesContainer>
             <h3>Moves:</h3>
             {pokemonDetail.moves?.map(
-              (mov, index) => index < 4 && <div>{mov?.move.name}</div>
+              (mov, index) => index < 4 && <div>{mov?.move.name.charAt(0).toUpperCase() +
+                mov?.move.name?.slice(1)}</div>
             )}
           </PokemonDetailMovesContainer>
         </PokemonDetailRightContainer>

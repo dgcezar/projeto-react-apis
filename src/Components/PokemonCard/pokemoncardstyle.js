@@ -27,8 +27,7 @@ export const CardContainer = styled.div`
   display: flex;
   width: 440px;
   height: 210px;
-  border-radius: 12px;
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@400;700&display=swap");
+  border-radius: 12px; 
 `;
 
 export const CardLeftContainer = styled.div`
