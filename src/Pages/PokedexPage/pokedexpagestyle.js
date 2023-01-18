@@ -10,6 +10,7 @@ export const ReturnToMainPageButton = styled.button`
   font-weight: 700;
   margin-right: auto;
   cursor: pointer;
+  margin-right: auto;
 `;
 
 export const PokedexMainContainer = styled.section`

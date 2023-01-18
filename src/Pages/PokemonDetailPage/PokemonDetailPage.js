@@ -1,23 +1,36 @@
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
+import PokemonDetailCard from "../../Components/PokemonDetailCard/PokemonDetailCard";
+import { BASE_URL } from "../../Components/Url/Url";
+import { GlobalContext } from "../../Contexts/GlobalContext";
 import { goToPokemonList } from "../../Router/Coordinator";
+import { ReturnToMainPageButton } from "../PokedexPage/pokedexpagestyle";
 import {
+  AddOrRemoveButton,
   PokemonDetailContainer,
-  PokemonDetailDescriptionContainer,
-  PokemonDetailImage,
-  PokemonDetailLeftContainer,
-  PokemonDetailMovesContainer,
-  PokemonDetailPokemonDescription,
-  PokemonDetailRightContainer,
   PokemonDetailTitle,
 } from "./pokemondetailstyle";
 
 function PokemonDetailPage() {
   const navigate = useNavigate();
-  const addPokemonOnPokedex = <button>Adicionar/Remover da pokedex</button>;
-  const returnToMainPage = (
-    <button onClick={() => goToPokemonList(navigate)}>Voltar</button>
+
+  let {id} = useParams()
+
+  const context = useContext(GlobalContext);
+
+  const { addToPokedex, removeFromPokedexList, pokeList } = context;
+
+  const addPokemonOnPokedex = (
+    <AddOrRemoveButton>Adicionar/Remover da pokedex</AddOrRemoveButton>
   );
+
+  const returnToMainPage = (
+    <ReturnToMainPageButton onClick={() => goToPokemonList(navigate)}>
+      &lt; Todos Pokemons
+    </ReturnToMainPageButton>
+  );
+
   return (
     <>
       <Header
@@ -26,19 +39,15 @@ function PokemonDetailPage() {
       />
       <PokemonDetailContainer>
         <PokemonDetailTitle>
-          <h1>Detalhes</h1>
+          <h1>Detalhes</h1>          
+          <p>{BASE_URL}/{id}</p>
         </PokemonDetailTitle>
-        <PokemonDetailDescriptionContainer>
-          <PokemonDetailLeftContainer>
-            <PokemonDetailImage></PokemonDetailImage>
-            <PokemonDetailImage></PokemonDetailImage>
-            <PokemonDetailDescriptionContainer></PokemonDetailDescriptionContainer>
-          </PokemonDetailLeftContainer>
-          <PokemonDetailRightContainer>
-            <PokemonDetailPokemonDescription></PokemonDetailPokemonDescription>
-            <PokemonDetailMovesContainer></PokemonDetailMovesContainer>
-          </PokemonDetailRightContainer>
-        </PokemonDetailDescriptionContainer>
+        <div>
+          <PokemonDetailCard
+            key={pokeList.name}
+            pokemonUrl={`${BASE_URL}/${id}`}            
+          />
+        </div>
       </PokemonDetailContainer>
     </>
   );

@@ -43,6 +43,7 @@ export function PokemonCard(props) {
   const bgColor = pokemon.types?.map((typ) => (BackgroundColorCard(typ?.type.name)))
   const firstTypeColor = bgColor?.find((typeColor)=>typeColor)
 
+ 
   return (
     <>
       <CardContainer     
@@ -65,7 +66,7 @@ export function PokemonCard(props) {
           <CardDetail>
             <button
               onClick={() => {
-                goToPokemonDetail(navigate);
+                goToPokemonDetail(navigate(`/pokemonDetail/${pokemon.id}`));
               }}
             >
               Detalhes

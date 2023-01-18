@@ -1,54 +1,39 @@
 import styled from "styled-components";
 
+export const AddOrRemoveButton = styled.button`
+  width: 226px;
+  height: 57px;
+  background-color: #FF6262;
+  border-radius: 8px;
+  border-width: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  margin-top: 25px;
+  margin-right: 20px;
+  cursor: pointer;
+
+`
+
 export const PokemonDetailContainer = styled.section`
   display: flex;
+  align-items: center;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: #5e5e5e;
+  background-color: #5e5e5e;  
 `;
 
 export const PokemonDetailTitle = styled.div`
-  width: 1440px;
-`;
-
-export const PokemonDetailDescriptionContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  width: 1389px;
-  height: 663px;
-  border-radius: 38px;
-  background-color: #729f92;
-`;
-
-export const PokemonDetailLeftContainer = styled.div`
-  display: flex;
-  width: 50%;
-  height: 100%;
-`;
-
-export const PokemonDetailRightContainer = styled.div`
-  display: flex;
-  width: 50%;
-  height: 100%;
-`;
-export const PokemonDetailImage = styled.div`
-  width: 282px;
-  height: 282px;
-`;
-
-export const PokemonDetailStatsContainer = styled.div`
-  width: 343px;
-  height: 613px;
-`;
-
-export const PokemonDetailPokemonDescription = styled.div`
-  display: flex;
-  width: 650px;
-  height: 30%;
-`;
-export const PokemonDetailMovesContainer = styled.div`
-  display: flex;
-  width: 292px;
-  height: 453px;
+  align-items: center;
+  width: 1380px;
+  height: 200px;
+  h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+  }
 `;
