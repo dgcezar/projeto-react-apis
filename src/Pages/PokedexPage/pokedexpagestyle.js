@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ReturnToMainPageButton = styled.button`
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@400;700&display=swap");
   border: none;
   background: none;
   text-decoration: underline;
@@ -10,6 +9,7 @@ export const ReturnToMainPageButton = styled.button`
   font-weight: 700;
   margin-right: auto;
   cursor: pointer;
+  margin-right: auto;
 `;
 
 export const PokedexMainContainer = styled.section`
@@ -26,7 +26,7 @@ export const PokedexGridTitle = styled.div`
   align-items: center;
   width: 1440px;
   height: 200px;
-  h1 {    
+  h1 {
     font-family: "Poppins", sans-serif;
     font-size: 48px;
     font-weight: 700;

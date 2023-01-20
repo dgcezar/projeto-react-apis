@@ -16,7 +16,7 @@ function PokemonListPage() {
 
   const context = useContext(GlobalContext);
 
-  const { pokeList, addToPokedex, pokedexList, } = context;
+  const { pokeList, addToPokedex, pokedexList } = context;
 
   const filteredPokeList = () =>
     pokeList.filter(
@@ -43,7 +43,7 @@ function PokemonListPage() {
           {filteredPokeList().map((poke) => (
             <PokemonCard
               key={poke.url}
-              pokemonUrl={poke.url}          
+              pokemonUrl={poke.url}
               addToPokedex={addToPokedex}
             />
           ))}

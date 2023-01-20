@@ -55,6 +55,6 @@ export const PokemonTypes = (type) => {
       return <img src={water} alt="water type" />;
     case "poison":
       return <img src={poison} alt="poison type" />;
-    default:      
+    default:
   }
 };

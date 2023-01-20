@@ -10,6 +10,7 @@ export const GlobalStyled = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Montserrat&family=Poppins:wght@400;700&display=swap');
   }
 `;
 

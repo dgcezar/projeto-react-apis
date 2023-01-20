@@ -9,7 +9,7 @@ export function Header(props) {
           {props.returnToMainPage}
           <img src={pokemonlogo} alt="PokemonLogo" />
           {props.pokedexbutton}
-          {props.addPokemonOnPokedex}
+          {props.AddOrRemoveButton}
         </HeaderBox>
       </HeaderContainer>
     </>
