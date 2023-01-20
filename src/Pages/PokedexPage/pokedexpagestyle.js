@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ReturnToMainPageButton = styled.button`  
+export const ReturnToMainPageButton = styled.button`
   border: none;
   background: none;
   text-decoration: underline;
@@ -26,7 +26,7 @@ export const PokedexGridTitle = styled.div`
   align-items: center;
   width: 1440px;
   height: 200px;
-  h1 {    
+  h1 {
     font-family: "Poppins", sans-serif;
     font-size: 48px;
     font-weight: 700;

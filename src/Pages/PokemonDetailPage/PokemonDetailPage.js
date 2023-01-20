@@ -2,11 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../Components/Header/Header";
-import {
-  AddToPokedexButton,
-  BackgroundColorCard,
-  RemoveFromPokedexButton,
-} from "../../Components/PokemonCard/pokemoncardstyle";
+import { BackgroundColorCard } from "../../Components/PokemonCard/pokemoncardstyle";
 import { BaseStatsNames } from "../../Components/BaseStatsNames/BaseStatsNames";
 import { BASE_URL } from "../../Components/Url/Url";
 import { GlobalContext } from "../../Contexts/GlobalContext";
@@ -17,7 +13,6 @@ import {
   BaseStatName,
   BaseStatNumber,
   BaseStatsBox,
-  BaseStatsContainer,
   BaseStatTotal,
   PokemonDetailBaseStatsContainer,
   PokemonDetailContainer,
@@ -48,8 +43,6 @@ function PokemonDetailPage() {
       &lt; Todos Pokemons
     </ReturnToMainPageButton>
   );
-
-  //
 
   const [pokemonDetail, setPokemonDetail] = useState({});
 
@@ -130,7 +123,7 @@ function PokemonDetailPage() {
                       </BaseStatNumber>
                       <ProgressBarContainer>
                         <ProgressBar
-                          style={{ width: `${pokeStats?.base_stat}%`}}
+                          style={{ width: `${pokeStats?.base_stat}%` }}
                         />
                       </ProgressBarContainer>
                     </BaseStatsBox>

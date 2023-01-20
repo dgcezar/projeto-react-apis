@@ -20,14 +20,13 @@ export function PokemonCard(props) {
   const { pokemonUrl, addToPokedex, removeFromPokedexList } = props;
 
   const location = useLocation();
-  
-  const navigate = useNavigate();  
+
+  const navigate = useNavigate();
 
   const [pokemon, setPokemon] = useState({});
 
   useEffect(() => {
-    fetchPokemon()    
-  
+    fetchPokemon();
   }, []);
 
   const fetchPokemon = async () => {
@@ -35,26 +34,29 @@ export function PokemonCard(props) {
       const response = await axios.get(pokemonUrl);
       setPokemon(response.data);
     } catch (error) {
-      console.log("Erro na busca da lista de pokemons")
+      console.log("Erro na busca da lista de pokemons");
       console.log(error);
     }
   };
-  
-  const bgColor = pokemon.types?.map((typ) => (BackgroundColorCard(typ?.type.name)))
-  const firstTypeColor = bgColor?.find((typeColor)=>typeColor)
- 
+
+  const bgColor = pokemon.types?.map((typ) =>
+    BackgroundColorCard(typ?.type.name)
+  );
+  const firstTypeColor = bgColor?.find((typeColor) => typeColor);
+
   return (
     <>
-      <CardContainer     
-      style={{
-        backgroundColor: `${firstTypeColor}`
-      }}
+      <CardContainer
+        style={{
+          backgroundColor: `${firstTypeColor}`,
+        }}
       >
         <CardLeftContainer>
           <CardDescription>
             <h4>#0{pokemon.id}</h4>
-            <h2>{pokemon.name?.charAt(0).toUpperCase() +
-                    pokemon.name?.slice(1)}</h2>
+            <h2>
+              {pokemon.name?.charAt(0).toUpperCase() + pokemon.name?.slice(1)}
+            </h2>
             <article>
               {pokemon.types?.map((typ) => (
                 <div>
@@ -82,9 +84,13 @@ export function PokemonCard(props) {
           </CardImage>
           <CardButton>
             {location.pathname === "/" ? (
-              <AddToPokedexButton onClick={() => addToPokedex(pokemon)}>Capturar</AddToPokedexButton>
+              <AddToPokedexButton onClick={() => addToPokedex(pokemon)}>
+                Capturar
+              </AddToPokedexButton>
             ) : (
-              <RemoveFromPokedexButton onClick={() => removeFromPokedexList(pokemon)}>
+              <RemoveFromPokedexButton
+                onClick={() => removeFromPokedexList(pokemon)}
+              >
                 Excluir
               </RemoveFromPokedexButton>
             )}

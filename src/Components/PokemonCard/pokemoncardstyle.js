@@ -27,7 +27,7 @@ export const CardContainer = styled.div`
   display: flex;
   width: 440px;
   height: 210px;
-  border-radius: 12px; 
+  border-radius: 12px;
 `;
 
 export const CardLeftContainer = styled.div`
@@ -137,7 +137,7 @@ export const AddToPokedexButton = styled.button`
 `;
 
 export const RemoveFromPokedexButton = styled.button`
-  background-color: #FF6262;
+  background-color: #ff6262;
   width: 146px;
   height: 38px;
   border-radius: 8px;
@@ -149,4 +149,4 @@ export const RemoveFromPokedexButton = styled.button`
   margin-top: 25px;
   margin-right: 20px;
   cursor: pointer;
-`
+`;
