@@ -43,7 +43,7 @@ As principais features do projeto são:
  - Verificar os principais detalhes de cada pokemon.
 
 ## Links
-  - Deploy on Surge: https://pokedex.surge.sh/
+  - Deploy on Surge: https://pokedexapidiegocezar.surge.sh/
   - Repositório: https://github.com/dgcezar/Loja-de-Jogos  
 
   ## Autor
@@ -51,4 +51,3 @@ As principais features do projeto são:
   * **Diego Cezar** 
 
   Obrigado pela visita :)!
-
