@@ -2,7 +2,7 @@
 
 A Pokedex é um site de pokémons que possui três páginas: Home, Pokedex e Detalhes. 
 
-![Preview](https://github.com/dgcezar/projeto-react-apis/blob/5d4948adf36e3dab1a64b009484e239db13809cc/src/ImgReadme/pokedex_homepage.png)
+![Preview](https://github.com/dgcezar/projeto-react-apis/blob/60393453fbd2b37d95a6765e919f89ae1be3fcbd/src/ImgReadme/pokedex_homepagee.png)
 
 A página Homepage possui uma lista de pokemons onde você pode capturar os pokemons e acessar as demais páginas.
 
